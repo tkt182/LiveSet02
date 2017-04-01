@@ -1,0 +1,13 @@
+ofxAnimationPrimitives
+ofxBillboard
+ofxEasing
+ofxFft
+ofxGlobalContext
+ofxLayer
+ofxMidi
+ofxOsc
+ofxPostGlitch
+ofxRollingCam
+ofxThreadedImageLoader
+ofxTwistedRibbon
+ofxVboParticles
