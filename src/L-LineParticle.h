@@ -57,7 +57,7 @@ private:
     void setGLParam(){
         static GLfloat distance[] = { 0.0, 0.0, 1.0 };
         glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
-        glPointSize(5000.0);
+        glPointSize(2000.0);
     }
     
     void keyEvent(){

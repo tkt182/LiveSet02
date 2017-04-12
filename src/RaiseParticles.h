@@ -23,6 +23,8 @@ public:
     void setCurrentTime();
     bool getMoveStatus();
     bool getFinishMove();
+    bool getAddNextFlag();
+    void enableDisplay();
     
     int numParticles;
     int maxParticles;
@@ -31,13 +33,17 @@ public:
     deque<ofVec3f> positions;
     deque<float> initY;
     deque<float> endY;
+    deque<float> initZ;
+    deque<float> endZ;
     deque<float> movePosition;
     float now;
     float initTime;
     float endPosition;
     
+    bool addNextFlag;
     bool isMove;
     bool finishMove;
+    bool displayFlag;
     GLfloat defaultDistance[3];
     ofVboMesh billboards;
     

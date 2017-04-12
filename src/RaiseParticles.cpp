@@ -5,7 +5,7 @@ RaiseParticles::RaiseParticles(){
     billboards.setUsage(GL_DYNAMIC_DRAW);
     billboards.setMode(OF_PRIMITIVE_POINTS);
     
-    maxParticles = 10000;
+    maxParticles = 1000;
     numParticles = 0;
     
     swidth = ofGetWidth()*4;
@@ -15,26 +15,36 @@ RaiseParticles::RaiseParticles(){
     // Easing
     //now      = -10000.f;
     initTime = 0.f;
-    //initTime = ofGetElapsedTimef();
-    initTime = 10000.f;
+    initTime = ofGetElapsedTimef();
+    //initTime = 10000.f;
     endPosition = sheight;
-    isMove = false;
-    finishMove = false;
+    isMove      = false;
+    finishMove  = false;
+    addNextFlag = false;
+    displayFlag = false;
     
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000; i++){
         ofVec3f pos = ofVec3f(
             ofRandom(-swidth, swidth),
             //ofRandom(-sheight, sheight),
             -sheight + ofRandom(-100, 100),
             ofRandom(-sdepth, sdepth)
         );
-    
+
+        float y = -sheight * 2.0 + ofRandom(-500, 500);
+        initY.push_back(y);
+        endY.push_back(y + endPosition * 4.0);
+        
+        float z = ofRandom(-1500, 0);
+        initZ.push_back(z);
+        endZ.push_back(z + sdepth *1.7  / 4.0);
+        
+        pos.y = y;
+        pos.z = z;
+        
         positions.push_back(pos);
         billboards.addVertex(ofVec3f(positions[i].x, positions[i].y, positions[i].z));
 
-        float y = -sheight + ofRandom(-500, 500);
-        initY.push_back(y);
-        endY.push_back(y + endPosition * 2.0);
         numParticles++;
     }
     
@@ -45,38 +55,29 @@ RaiseParticles::~RaiseParticles(){
 }
 
 void RaiseParticles::update(){
-    
-    
-    float duration = 5.f;
+    float duration = 10.f;
     float endTime = initTime + duration;
     float now = ofGetElapsedTimef();
     float tmpY;
     
     for(int i = 0; i < positions.size(); i++){
+        
         ofVec3f pos = positions[i];
         positions[i].y = ofxeasing::map_clamp(now, initTime, endTime, initY[i], endY[i], &ofxeasing::linear::easeIn);
-        //positions[i].y = ofxeasing::map_clamp(now, initTime, endTime, -sheight, endPosition, &ofxeasing::linear::easeIn);
-        //positions[i].y = ofxeasing::map_clamp(now, initTime, endTime, 0, endPosition, &ofxeasing::linear::easeIn);
-
+        positions[i].z = ofxeasing::map_clamp(now, initTime, endTime, initZ[i], endZ[i], &ofxeasing::linear::easeIn);
+        
         if(i == 0){
-            tmpY = positions[0].y;
+            
+            tmpY = positions[i].y;
+            if(tmpY - initY[i] > (endY[i] - initY[i]) / 4.0){
+                this->addNextFlag = true;
+            }
         }
-        //if(positions[i].y < tmpY){
-        //    tmpY = positions[i].y;
-        //}
+        
         billboards.getVertices()[i].set(pos);
+        
     }
     
-    if(tmpY < endY[0] && initTime < 10000){
-        isMove = true;
-    }else{
-        isMove = false;
-    }
-    
-    if(tmpY >= endY[0]){
-        finishMove = true;
-    }
-
 }
 
 void RaiseParticles::draw(){
@@ -94,4 +95,12 @@ bool RaiseParticles::getMoveStatus(){
 
 bool RaiseParticles::getFinishMove(){
     return finishMove;
+}
+
+bool RaiseParticles::getAddNextFlag(){
+    return addNextFlag;
+}
+
+void RaiseParticles::enableDisplay(){
+    displayFlag = true;
 }

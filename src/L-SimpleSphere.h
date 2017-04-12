@@ -43,6 +43,16 @@ public:
             i++;
         }
         
+        // get addflag from last particles
+        itr--;
+        if(itr->getAddNextFlag()){
+            RaiseParticles *particle = new RaiseParticles();
+            parts.push_back(*particle);
+        }
+        
+        if(parts.size() > 4) {
+            parts.pop_front();
+        }
     }
     
     void draw(){
@@ -57,7 +67,7 @@ public:
             for(itr; itr != parts.end(); itr++){
                 itr->draw();
             }
-            angle += 0.1;
+            //angle += 0.1;
         }
         ofPopMatrix();
         $Context(RollCam)->end();

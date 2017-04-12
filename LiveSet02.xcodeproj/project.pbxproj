@@ -51,6 +51,7 @@
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 		EC26F225D807F4F069405924 /* ofxThreadedImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B576A8B106CBE71564781C /* ofxThreadedImageLoader.cpp */; };
 		F6E7D6C01B3F2E112EB0533D /* ofxPostGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C409F696FE990F95E1B9D3 /* ofxPostGlitch.cpp */; };
+		F8835C1E1E9D4ECC00A35EFB /* ofGuiApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8835C1C1E9D4ECC00A35EFB /* ofGuiApp.cpp */; };
 		F897397E1E38832200E1FBC6 /* LineParticles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F897397C1E38832200E1FBC6 /* LineParticles.cpp */; };
 /* End PBXBuildFile section */
 
@@ -192,8 +193,8 @@
 		E16BB73D19DD0713FDCC7986 /* ofxMidiTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMidiTypes.h; path = ../../../addons/ofxMidi/src/ofxMidiTypes.h; sourceTree = SOURCE_ROOT; };
 		E238CCDE032640E0FEBFAD82 /* ofxMidi.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxMidi.cpp; path = ../../../addons/ofxMidi/src/ofxMidi.cpp; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E4B69B5B0A3A1756003C02F2 /* LiveSet01Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = LiveSet01Debug.app; path = LiveSet02Debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69B5B0A3A1756003C02F2 /* LiveSet02Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveSet02Debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
@@ -209,6 +210,8 @@
 		F634AA6CA2E3C60F3B87B59A /* ofxRtMidiIn.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxRtMidiIn.cpp; path = ../../../addons/ofxMidi/src/desktop/ofxRtMidiIn.cpp; sourceTree = SOURCE_ROOT; };
 		F7832BFD5E9E9647428FFEFB /* InstanceManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = InstanceManager.h; path = ../../../addons/ofxAnimationPrimitives/src/ofxAnimationPrimitives/InstanceManager.h; sourceTree = SOURCE_ROOT; };
 		F7FBC56859535E597B24BB91 /* NetworkingUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NetworkingUtils.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h; sourceTree = SOURCE_ROOT; };
+		F8835C1C1E9D4ECC00A35EFB /* ofGuiApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofGuiApp.cpp; sourceTree = "<group>"; };
+		F8835C1D1E9D4ECC00A35EFB /* ofGuiApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofGuiApp.h; sourceTree = "<group>"; };
 		F897397A1E38570A00E1FBC6 /* L-LineParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "L-LineParticle.h"; sourceTree = "<group>"; };
 		F897397B1E38594F00E1FBC6 /* Scene3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene3.h; sourceTree = "<group>"; };
 		F897397C1E38832200E1FBC6 /* LineParticles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineParticles.cpp; sourceTree = "<group>"; };
@@ -630,7 +633,7 @@
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
-				E4B69B5B0A3A1756003C02F2 /* LiveSet01Debug.app */,
+				E4B69B5B0A3A1756003C02F2 /* LiveSet02Debug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -660,6 +663,8 @@
 				F398369B4CDBCC42B3F6D6B9 /* Scene2.h */,
 				F897397C1E38832200E1FBC6 /* LineParticles.cpp */,
 				F897397D1E38832200E1FBC6 /* LineParticles.h */,
+				F8835C1C1E9D4ECC00A35EFB /* ofGuiApp.cpp */,
+				F8835C1D1E9D4ECC00A35EFB /* ofGuiApp.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -762,7 +767,7 @@
 			);
 			name = LiveSet02;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* LiveSet01Debug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* LiveSet02Debug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -862,6 +867,7 @@
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
+				F8835C1E1E9D4ECC00A35EFB /* ofGuiApp.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
