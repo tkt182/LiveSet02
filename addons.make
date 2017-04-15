@@ -3,6 +3,7 @@ ofxBillboard
 ofxEasing
 ofxFft
 ofxGlobalContext
+ofxGui
 ofxLayer
 ofxMidi
 ofxOsc

@@ -6,10 +6,10 @@
 //
 //
 
-#include "ofGuiApp.h"
+#include "GuiApp.h"
 
 
-void ofGuiApp::setup(){
+void GuiApp::setup(){
     parameters.setName("parameters");
     parameters.add(radius.set("radius",50,1,100));
     parameters.add(color.set("color",100,ofColor(0,0),255));
@@ -18,10 +18,10 @@ void ofGuiApp::setup(){
     ofSetVerticalSync(false);
 }
 
-void ofGuiApp::update(){
+void GuiApp::update(){
     
 }
 
-void ofGuiApp::draw(){
+void GuiApp::draw(){
     gui.draw();
 }

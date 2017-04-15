@@ -4,7 +4,7 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 
-class ofGuiApp: public ofBaseApp {
+class GuiApp: public ofBaseApp {
 public:
     void setup();
     void update();
