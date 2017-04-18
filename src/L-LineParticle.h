@@ -10,7 +10,7 @@
 #define L_LineParticle_h
 
 
-#include "ofXLayer.h"
+#include "ofxLayer.h"
 #include "Context.h"
 #include "LineParticles.h"
 

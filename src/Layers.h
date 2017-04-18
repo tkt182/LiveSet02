@@ -18,11 +18,13 @@
 #include "L-Attraction.h"
 #include "L-ParticleSystem.h"
 #include "L-LineParticle.h"
+#include "L-MovieDelaunay.h"
 
 ofxLayer::Manager LM0;
 ofxLayer::Manager LM1;
 ofxLayer::Manager LM2;
 ofxLayer::Manager LM3;
+ofxLayer::Manager LM4;
 
 
 void init_layers(){
@@ -41,5 +43,8 @@ void init_layers3(){
     LM3.createLayer<LineParticle>(1);
 }
 
+void init_layers4(){
+    LM4.createLayer<MovieDelaunay>(1);
+}
 
 #endif /* Layers_h */

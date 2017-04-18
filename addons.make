@@ -1,11 +1,13 @@
 ofxAnimationPrimitives
 ofxBillboard
+ofxDelaunay
 ofxEasing
 ofxFft
 ofxGlobalContext
 ofxGui
 ofxLayer
 ofxMidi
+ofxOpenCv
 ofxOsc
 ofxPostGlitch
 ofxRollingCam
