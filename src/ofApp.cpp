@@ -30,6 +30,7 @@ void ofApp::setup(){
     SM.addScene<Scene4>();
     
     SM.changeScene("Scene0");
+    SM.setDefaultFadeDuration(0);
     
     finalFbo.allocate(ofGetWidth(), ofGetHeight());
     myGlitch.setup(&finalFbo);
