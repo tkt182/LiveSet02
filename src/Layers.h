@@ -36,7 +36,7 @@ void init_layers1(){
 }
 
 void init_layers2(){
-    LM2.createLayer<ParticleSimulation>(1);
+    //LM2.createLayer<ParticleSimulation>(1);
 }
 
 void init_layers3(){

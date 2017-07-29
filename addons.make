@@ -1,5 +1,6 @@
 ofxAnimationPrimitives
 ofxBillboard
+ofxCv
 ofxDelaunay
 ofxEasing
 ofxFft

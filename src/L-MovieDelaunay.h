@@ -15,6 +15,7 @@ public:
     Delaunays delauney;
     
     void setup(){
+        delauney.init();
     }
     
     void update(){
@@ -26,6 +27,8 @@ public:
         delauney.draw();
     }
     
+    void viewWillAppear() { cout << "Movie Will Start" << endl; }
+    void viewDidDisappear() { cout << "Movie Stopped" << endl; }
 };
 
 

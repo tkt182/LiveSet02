@@ -2,20 +2,28 @@
 #define MovieDelaunay_h
 
 #include "ofMain.h"
-#include "ofxOpenCv.h"
+#include "ofxCv.h"
+#include "ofxDelaunay.h"
 
 class Delaunays {
 public:
     Delaunays();
     ~Delaunays();
     
+    void init();
     void update();
     void draw();
     
-    //ofxCv::FlowPyLK     flow;
+    ofxCv::FlowPyrLK    flow;
     ofVideoPlayer 		movie;
-    //ofxDelaunay         delaunay;
+    ofxDelaunay         delaunay;
     
+    std::vector<ofVec3f> pts;
+    
+    //std::vector<ofP> triangleIndex;
+    ofMesh                 triangleMesh;
+    
+    int count;
     
 };
 

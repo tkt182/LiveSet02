@@ -6,7 +6,7 @@
 void ofApp::switchScene(int &temp){
     if(temp == 0) SM.changeScene<Scene0>();
     if(temp == 1) SM.changeScene<Scene1>();
-    if(temp == 2) SM.changeScene<Scene2>();
+    //if(temp == 2) SM.changeScene<Scene2>();
     
 }
 
@@ -25,7 +25,7 @@ void ofApp::setup(){
     
     SM.addScene<Scene0>();
     SM.addScene<Scene1>();
-    SM.addScene<Scene2>();
+    //SM.addScene<Scene2>();
     SM.addScene<Scene3>();
     SM.addScene<Scene4>();
     
@@ -59,7 +59,7 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     if (key == '1') SM.changeScene<Scene0>();
     if (key == '2') SM.changeScene<Scene1>();
-    if (key == '3') SM.changeScene<Scene2>();
+    //if (key == '3') SM.changeScene<Scene2>();
     if (key == '5') SM.changeScene<Scene4>();
     if (key == '4') SM.changeScene<Scene3>();
     //if (key == '5') SM.changeScene<Scene4>();
