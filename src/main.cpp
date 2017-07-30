@@ -30,10 +30,10 @@ int main( ){
     
     shared_ptr<ofApp> mainApp(new ofApp);
     shared_ptr<GuiApp> guiApp(new GuiApp);
-    mainApp->gui = guiApp;
+    //mainApp->gui = guiApp;
+    guiApp->app = mainApp;
     
-    
-    ofRunApp(guiWindow, guiApp);
     ofRunApp(mainWindow, mainApp);
+    ofRunApp(guiWindow, guiApp);
     ofRunMainLoop();
 }

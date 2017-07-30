@@ -54,6 +54,7 @@ void ofApp::draw(){
     
     /* draw effected view */
     finalFbo.draw(0, 0);
+    
 }
 
 //--------------------------------------------------------------
@@ -61,9 +62,8 @@ void ofApp::keyPressed(int key){
     if (key == '1') SM.changeScene<Scene0>();
     if (key == '2') SM.changeScene<Scene1>();
     //if (key == '3') SM.changeScene<Scene2>();
-    if (key == '5') SM.changeScene<Scene4>();
     if (key == '4') SM.changeScene<Scene3>();
-    //if (key == '5') SM.changeScene<Scene4>();
+    if (key == '5') SM.changeScene<Scene4>();
     
     $Context(KeyboardControl)->setPressedKey(key);
     

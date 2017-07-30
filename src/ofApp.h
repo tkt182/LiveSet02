@@ -4,7 +4,7 @@
 #include "ofxAnimationPrimitives.h"
 #include "ofxGlobalContext.h"
 #include "ofxPostGlitch.h"
-#include "GuiApp.h"
+//#include "GuiApp.h"
 
 
 class ofApp : public ofBaseApp{
@@ -25,8 +25,6 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-
-        shared_ptr<GuiApp> gui;
     
         void switchScene(int &temp);
     

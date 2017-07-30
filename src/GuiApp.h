@@ -3,6 +3,7 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "ofApp.h"
 
 class GuiApp: public ofBaseApp {
 public:
@@ -14,6 +15,8 @@ public:
     ofParameter<float> radius;
     ofParameter<ofColor> color;
     ofxPanel gui;
+    
+    shared_ptr<ofApp> app;
 };
 
 #endif /* ofGuiApp */

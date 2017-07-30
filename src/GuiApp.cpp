@@ -24,4 +24,5 @@ void GuiApp::update(){
 
 void GuiApp::draw(){
     gui.draw();
+    app->finalFbo.getTexture().draw(0, 200, ofGetWidth() / 2, ofGetHeight() / 2);
 }
