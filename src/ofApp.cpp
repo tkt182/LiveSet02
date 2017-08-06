@@ -14,6 +14,8 @@ void ofApp::switchScene(int &temp){
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    //ofSetFullscreen(true);
+    //ofSetWindowPosition(1441,0);
     ofHideCursor();
     ofSetVerticalSync(true);
     ofSetFrameRate(60);

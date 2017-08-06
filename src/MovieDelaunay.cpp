@@ -2,11 +2,6 @@
 
 Delaunays::Delaunays(){
     flow.resetFlow();
-    //movie.load("movies/fingers.mov");
-    //movie.load("movies/dancing.mp4");
-    //movie.setLoopState(OF_LOOP_NORMAL);
-    //movie.play();
-    
     count = 0;
 }
 
@@ -15,17 +10,52 @@ Delaunays::~Delaunays(){
 
 void Delaunays::init(){
     cout << "START" << endl;
-    movie.load("movies/dancing.mp4");
-    movie.setLoopState(OF_LOOP_NORMAL);
+    currentFilter = 0;
+    //movie.load("movies/dancing.mp4");
+    //movie.setLoopState(OF_LOOP_NORMAL);
     //movie.play();
+    videoCam.initGrabber(ofGetWidth(), ofGetHeight());
+    videoCam.setDeviceID(2);
+    
+    // allocate buffer to filter
+    for(int i = 0; i < FILTER_NUM; i++){
+        colorImgs[i].allocate(ofGetWidth(), ofGetHeight());
+    }
+    
 }
 
 
 void Delaunays::update(){
-    //flow.resetFeaturesToTrack();
-    movie.play();
-    movie.update();
-    flow.calcOpticalFlow(movie.getPixelsRef());
+    //movie.play();
+    //movie.update();
+    //flow.calcOpticalFlow(movie.getPixelsRef());
+    videoCam.update();
+    
+    for(int i = 0; i < FILTER_NUM; i++){
+        colorImgs[i].setFromPixels(videoCam.getPixelsRef(), ofGetWidth(), ofGetHeight());
+        
+        switch (i) {
+            // fullsize
+            case 0:
+                colorImgs[i].setROI(0, 0, ofGetWidth(), ofGetHeight());
+                break;
+            
+            // left top
+            case 1:
+                colorImgs[i].setROI(0, 0, ofGetWidth() / 2, ofGetHeight() / 2);
+                break;
+            // bottom
+            case 2:
+                colorImgs[i].setROI(0, ofGetHeight() / 2, ofGetWidth(), ofGetHeight() / 2);
+                
+                
+            default:
+                break;
+        }
+    }
+    
+    
+    flow.calcOpticalFlow(videoCam.getPixelsRef());
 
     
     triangleMesh.clear();
@@ -40,9 +70,10 @@ void Delaunays::update(){
         delaunay.triangulate();
     }
     
-    movie.update();
+    //movie.update();
 
-    if((count % 20) == 0){
+    // for safe
+    if((count % 180) == 0){
         flow.resetFeaturesToTrack();
     }
     
@@ -50,17 +81,17 @@ void Delaunays::update(){
     
     int triangleNum = delaunay.getNumTriangles();
     for(int i = 0; i < triangleNum; i++){
-        if(i % 15 == 0){
+        if(i % 25 == 0){
             ITRIANGLE index = delaunay.getTriangleAtIndex(i);
             vector<ofPoint> trianglePoints = delaunay.getPointsForITriangle(index);
         
             for(int j = 0; j < trianglePoints.size(); j++){
                 triangleMesh.addVertex(trianglePoints[j]);
                 triangleMesh.addColor(ofColor(255));
+                //triangleMesh.addColor(ofColor(ofRandom(255), ofRandom(255), ofRandom(255)));
             }
         }
     }
-    
     
 }
 
@@ -73,7 +104,24 @@ void Delaunays::draw(){
     ofFill();
     triangleMesh.draw();
     
+    //movie.draw(0, 0);
+    //videoCam.draw(0, 0);
     
-    movie.draw(0, 0);
+    switch (currentFilter) {
+        case 0:
+            colorImgs[0].drawROI(0, 0);
+            break;
+        case 1:
+            colorImgs[1].drawROI(0, 0);
+            colorImgs[2].drawROI(0, ofGetHeight() / 2);
+            break;
+        default:
+            colorImgs[1].drawROI(0, 0);
+            break;
+    }
+    
+}
 
+void Delaunays::setFilterId(int filterId){
+    currentFilter = filterId;
 }

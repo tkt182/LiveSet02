@@ -19,6 +19,7 @@ public:
     }
     
     void update(){
+        keyEvent();
         delauney.update();
     }
     
@@ -29,6 +30,21 @@ public:
     
     void viewWillAppear() { cout << "Movie Will Start" << endl; }
     void viewDidDisappear() { cout << "Movie Stopped" << endl; }
+
+private:
+    
+    void keyEvent(){
+        int key = $Context(KeyboardControl)->getPressedKey();
+        if (key == 'v'){
+            delauney.setFilterId(0);
+        }
+        if (key == 'b'){
+            delauney.setFilterId(1);
+        }
+    
+    }
+
+
 };
 
 

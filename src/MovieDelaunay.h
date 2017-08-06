@@ -4,6 +4,10 @@
 #include "ofMain.h"
 #include "ofxCv.h"
 #include "ofxDelaunay.h"
+#include "ofxOpenCv.h"
+
+
+#define FILTER_NUM 3
 
 class Delaunays {
 public:
@@ -13,9 +17,13 @@ public:
     void init();
     void update();
     void draw();
+    void setFilterId(int filterId);
+    
     
     ofxCv::FlowPyrLK    flow;
     ofVideoPlayer 		movie;
+    ofVideoGrabber      videoCam;
+    ofxCvColorImage     colorImgs[FILTER_NUM];
     ofxDelaunay         delaunay;
     
     std::vector<ofVec3f> pts;
@@ -24,6 +32,7 @@ public:
     ofMesh                 triangleMesh;
     
     int count;
+    int currentFilter;
     
 };
 
