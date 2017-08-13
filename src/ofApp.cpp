@@ -20,7 +20,6 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
     ofBackground(0);
-
     
     init_context();
     $Context(KeyboardControl)->setup();
@@ -81,6 +80,7 @@ void ofApp::keyPressed(int key){
     //if (key == 'p') myGlitch.toggleFx(OFXPOSTGLITCH_INVERT);
     //if (key == 'p') myGlitch.toggleFx(OFXPOSTGLITCH_CR_RLINE);
     if (key == 'p') myGlitch.toggleFx(OFXPOSTGLITCH_CR_MIRROR4);
+    
 }
 
 //--------------------------------------------------------------

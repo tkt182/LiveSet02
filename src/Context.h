@@ -11,6 +11,7 @@
 
 #include "ofxGlobalContext.h"
 #include "ofxRollingCam.h"
+#include "ofxProcessFFT.h"
 
 class KeyboardControl : public ofxGlobalContext::Context {
 
@@ -74,10 +75,43 @@ public:
     }
 };
 
+class AudioInput : public ofxGlobalContext::Context {
+
+public:
+    ProcessFFT fft;
+    bool       disableAudio;
+    
+    void setup(){
+        disableAudio = true;
+        fft.setup();
+    }
+    
+    void update(){
+        fft.update();
+    }
+    
+    float getLowValForEffect(){
+        float lowVal = fft.getLowVal();
+        if(disableAudio){
+            //lowVal = ofRandom(0.0, 1.0);
+            lowVal = 0.0;
+        }
+        
+        return lowVal;
+    }
+    
+    void changeDisableAudioFlag(){
+        cout << "AUDIO FLAG : " << disableAudio << endl;
+        disableAudio = !disableAudio;
+    }
+    
+};
+
 
 void init_context(){
     ofxGlobalContext::Manager::defaultManager().createContext<KeyboardControl>();
     ofxGlobalContext::Manager::defaultManager().createContext<RollCam>();
+    ofxGlobalContext::Manager::defaultManager().createContext<AudioInput>();
 }
 
 

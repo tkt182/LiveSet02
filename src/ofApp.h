@@ -4,7 +4,6 @@
 #include "ofxAnimationPrimitives.h"
 #include "ofxGlobalContext.h"
 #include "ofxPostGlitch.h"
-//#include "GuiApp.h"
 
 
 class ofApp : public ofBaseApp{
@@ -27,11 +26,9 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         void switchScene(int &temp);
-    
-        ofFbo finalFbo;
-    
         ofxAnimationPrimitives::SceneManager SM;
-
-        /*Addon instance*/
-        ofxPostGlitch	myGlitch;
+    
+        ofFbo          finalFbo;
+        ofxPostGlitch  myGlitch;
+    
 };

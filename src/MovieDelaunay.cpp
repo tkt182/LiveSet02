@@ -2,7 +2,10 @@
 
 Delaunays::Delaunays(){
     flow.resetFlow();
-    count = 0;
+    
+    count        = 0;
+    lowVal       = 0.0f;
+    flowResetVal = 25.0f;
 }
 
 Delaunays::~Delaunays(){
@@ -72,8 +75,7 @@ void Delaunays::update(){
     
     //movie.update();
 
-    // for safe
-    if((count % 180) == 0){
+    if(lowVal > flowResetVal){
         flow.resetFeaturesToTrack();
     }
     
@@ -124,4 +126,12 @@ void Delaunays::draw(){
 
 void Delaunays::setFilterId(int filterId){
     currentFilter = filterId;
+}
+
+void Delaunays::setLowVal(float val){
+    lowVal = val;
+}
+
+void Delaunays::setFlowResetVal(float val){
+    flowResetVal = val;
 }

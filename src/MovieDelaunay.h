@@ -18,7 +18,8 @@ public:
     void update();
     void draw();
     void setFilterId(int filterId);
-    
+    void setLowVal(float val);
+    void setFlowResetVal(float val);
     
     ofxCv::FlowPyrLK    flow;
     ofVideoPlayer 		movie;
@@ -31,8 +32,10 @@ public:
     //std::vector<ofP> triangleIndex;
     ofMesh                 triangleMesh;
     
-    int count;
-    int currentFilter;
+    int   count;
+    int   currentFilter;
+    float lowVal;
+    float flowResetVal;
     
 };
 

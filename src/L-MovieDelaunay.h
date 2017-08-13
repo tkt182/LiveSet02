@@ -15,11 +15,15 @@ public:
     Delaunays delauney;
     
     void setup(){
+        $Context(AudioInput)->setup();
         delauney.init();
     }
     
     void update(){
+        $Context(AudioInput)->update();
         keyEvent();
+        
+        delauney.setLowVal($Context(AudioInput)->getLowValForEffect());
         delauney.update();
     }
     
@@ -41,7 +45,9 @@ private:
         if (key == 'b'){
             delauney.setFilterId(1);
         }
-    
+        if (key == 'a'){
+            $Context(AudioInput)->changeDisableAudioFlag();
+        }
     }
 
 
