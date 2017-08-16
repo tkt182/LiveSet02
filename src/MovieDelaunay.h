@@ -21,9 +21,12 @@ public:
     void setLowVal(float val);
     void setFlowResetVal(float val);
     
-    ofxCv::FlowPyrLK    flow;
+    ofxCv::FlowPyrLK     flow;
+    ofxCv::FlowFarneback fbFlow;
+ 	ofxCv::Flow*         curFlow;
+    
     ofVideoPlayer 		movie;
-    ofVideoGrabber      videoCam;
+    ofVideoGrabber      videoCam, videoCamForFbFlow;
     ofxCvColorImage     colorImgs[FILTER_NUM];
     ofxDelaunay         delaunay;
     
@@ -36,6 +39,8 @@ public:
     int   currentFilter;
     float lowVal;
     float flowResetVal;
+    
+    int windowWidth, windowHeight;
     
 };
 

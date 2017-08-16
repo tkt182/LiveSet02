@@ -6,6 +6,9 @@ Delaunays::Delaunays(){
     count        = 0;
     lowVal       = 0.0f;
     flowResetVal = 25.0f;
+    
+    windowWidth  = ofGetWidth();
+    windowHeight = ofGetHeight();
 }
 
 Delaunays::~Delaunays(){
@@ -18,13 +21,16 @@ void Delaunays::init(){
     //movie.setLoopState(OF_LOOP_NORMAL);
     //movie.play();
     videoCam.initGrabber(ofGetWidth(), ofGetHeight());
+    videoCamForFbFlow.setup(320, 240);
     videoCam.setDeviceID(2);
+    videoCamForFbFlow.setDeviceID(2);
     
     // allocate buffer to filter
     for(int i = 0; i < FILTER_NUM; i++){
         colorImgs[i].allocate(ofGetWidth(), ofGetHeight());
     }
     
+    curFlow = &fbFlow;
 }
 
 
@@ -33,6 +39,7 @@ void Delaunays::update(){
     //movie.update();
     //flow.calcOpticalFlow(movie.getPixelsRef());
     videoCam.update();
+    videoCamForFbFlow.update();
     
     for(int i = 0; i < FILTER_NUM; i++){
         colorImgs[i].setFromPixels(videoCam.getPixelsRef(), ofGetWidth(), ofGetHeight());
@@ -57,6 +64,14 @@ void Delaunays::update(){
         }
     }
     
+    fbFlow.setPyramidScale(0.5);
+    fbFlow.setNumLevels(2);
+    fbFlow.setWindowSize(8);
+    fbFlow.setNumIterations(2);
+    fbFlow.setPolyN(7);
+    fbFlow.setPolySigma(1.5);
+    fbFlow.setUseGaussian(false);
+    curFlow->calcOpticalFlow(videoCamForFbFlow);
     
     flow.calcOpticalFlow(videoCam.getPixelsRef());
 
@@ -98,13 +113,14 @@ void Delaunays::update(){
 }
 
 void Delaunays::draw(){
-    
+    g
     ofSetColor(255);
     //movie.draw(0,0);
     ofNoFill();
     delaunay.draw();
     ofFill();
     triangleMesh.draw();
+    curFlow->draw(0, 0, windowWidth, windowWidth);
     
     //movie.draw(0, 0);
     //videoCam.draw(0, 0);
